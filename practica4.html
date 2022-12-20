@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>resMause</title>
+</head>
+<body>
+<!--width => ancho y height => altura  -->
+  <canvas width="600" height="400"></canvas>  
+
+
+<script>
+let pantalla = document.querySelector("canvas");
+let pincel = pantalla.getContext("2d");
+
+pincel.fillStyle = "black";
+pincel.fillRect(0,0,600,400)
+
+function exibirAlerta(evento) {
+
+    let x = evento.pageX;
+    let y = evento.pageY;
+
+    console.log(evento);
+    alert(" eje x: "+  x + "," + " eje y: " + y )
+}
+
+function dibujarCirculo(evento) {
+  let x = evento.pageX ;
+  let y = evento.pageY ;
+
+  pincel.fillStyle = "red";
+  pincel.beginPath();
+  pincel.arc(x,y,5,0,2*3.14);
+  pincel.fill();
+  console.log(" eje x: "+  x + "," + " eje y: " + y);
+}
+
+//pantalla.onclick = exibirAlerta;
+pantalla.onclick = dibujarCirculo;
+</script>
+
+</body>
+</html>
